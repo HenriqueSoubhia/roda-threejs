@@ -1,52 +1,28 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
 
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-  <script src="jquery-2.1.4.js"></script>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="three.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3d</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="three.min.js"></script>
 </head>
 
 <body>
-  <div id="navbar"><span>Three js tutorial</span></div>
-  <script>
-    var scene = new THREE.Scene();
-    var camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight, 0.1, 1000);
-    var renderer = new THREE.WebGLRenderer({antialias: true});
-    renderer.setSize( window.innerWidth, window.innerHeight );
-    document.body.appendChild( renderer.domElement );
 
-    var geometry = new THREE.BoxGeometry( 1, 1, 1);
-    var material = new THREE.MeshBasicMaterial( { color: 0x0000ff } );
-    var cube = new THREE.Mesh( geometry, material );
-    scene.add( cube );
+    <canvas id="bg"></canvas>
 
-    camera.position.z = 5;
+    <div class="text-container">
+        <h1 id="text" style="transform: rotate3d(360deg);" class="show">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, debitis. </h1>
 
-    function animate() {
-      requestAnimationFrame( animate );
-      cube.rotation.x += 0.01;
-      cube.rotation.y += 0.01;
-      renderer.render( scene, camera );
-    }
-    animate();
+    </div>
 
-/*      var geometry = new THREE.BufferGeometry();
-    var vertices = new Float32Array( [
-    -1.0, -1.0,  1.0,
-    1.0, -1.0,  1.0,
-    1.0,  1.0,  1.0,
 
-    1.0,  1.0,  1.0,
-    -1.0,  1.0,  1.0,
-    -1.0, -1.0,  1.0
-    ]);
-
-    geometry.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
-    var material = new THREE.MeshBasicMaterial( {color: 0xff0000 } );
-    var mesh = new THREE.Mesh( geometry, material );*/
-  </script>
 </body>
+<script src="main.js" type="module"></script>
 
 </html>
